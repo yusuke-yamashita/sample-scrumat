@@ -1,20 +1,42 @@
-# スクラム祭りーAstroship - Astro SAAS Starter Website Template
+# スクラム祭り ウェブサイト
 
-Astroship is a free starter astro website template for saas, startups, marketing websites, landing pages & blogs. Built with Astro & TailwindCSS.
+このリポジトリは、スクラム祭りのウェブサイトのソースコードです。
+Astro と Tailwind CSS を使用して構築されています。
 
-This Free Template is sponsored by [Web3Templates](https://web3templates.com)
+## コンテンツの更新方法
 
-## Live Demo
+### 1. 参加コミュニティの変更
+参加コミュニティのデータは JSON ファイルで管理されています。
+追加・変更・削除を行う場合は、以下のファイルを編集してください。
+- **対象ファイル:** `src/content/communities.json`
 
-**[https://astroship.web3templates.com/](https://astroship.web3templates.com/)**
+### 2. Keynote スピーカーの変更
+Keynote スピーカーの情報は、Astro コンポーネント内のデータ（配列）として管理されています。
+スピーカーの追加・変更を行う場合は、以下のファイルの先頭にある `keynotes` 配列を編集してください。
+- **対象ファイル:** `src/components/keynote.astro`
 
-**[Download Astroship Template](https://web3templates.com/templates/astroship-starter-website-template-for-astro)**
+### 3. スポンサーの変更
+スポンサーのロゴ情報は、プラン（Platinum, Gold, Silver, Bronze, 個人）ごとにコンポーネント内で管理されています。
+スポンサーの追加・変更を行う場合は、以下のファイルの先頭にある `sponsors` 配列を編集してください。
+- **対象ファイル:** `src/components/logos.astro`
 
-## Upgrade to Astroship Pro Version
+---
 
-**[https://astroship-pro.web3templates.com/](https://astroship-pro.web3templates.com/)**
+## 開発サーバーの起動方法
 
-**[Purchase Astroship Pro — $49](https://web3templates.com/templates/astroship-pro-astro-saas-website-template)**
+```bash
+# パッケージのインストール
+npm install
+
+# 開発サーバーの起動
+npm run dev
+```
+
+---
+
+*以下はベースとなった Astroship テンプレートのオリジナル README です。*
+
+## Astroship - Astro SAAS Starter Website Template
 
 <!-- prettier-ignore -->
 | Feature | Free Version | Pro Version |
