@@ -1,52 +1,58 @@
 ---
-import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 
-// Filter team entries with 'draft: false' & date before current date
-const publishedTeamMembers = await getCollection("team", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
-});
+const committeeMembers = [
+  {
+    name: "ダミー 委員長",
+    title: "実行委員長 / アジャイルコーチ",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Committee1",
+  },
+  {
+    name: "ダミー 副委員長",
+    title: "副委員長 / スクラムマスター",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Committee2",
+  },
+  {
+    name: "ダミー 広報",
+    title: "広報担当 / プロダクトオーナー",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Committee3",
+  }
+];
 ---
 
 <Layout title="About">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">About</Fragment>
-      <Fragment slot="desc">We are a small passionate team.</Fragment>
+      <Fragment slot="title">実行委員会について</Fragment>
+      <Fragment slot="desc">スクラム祭りを作り上げるメンバーたちです。</Fragment>
     </Sectionhead>
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
       <h2 class="font-bold text-3xl text-gray-800">
-        Empowering the world with Astro.
+        スクラム祭り コンセプト
       </h2>
       <p class="text-lg leading-relaxed text-slate-500">
-        We're a multi-cultural team from around the world! We come from diverse
-        backgrounds, bringing different personalities, experiences and skills to
-        the job. This is what makes our team so special.
+        ここにスクラム祭りのコンセプトが入ります。参加者全員が楽しみながらスクラムの価値と実践を学び、現場に持ち帰ることを目的としています。多様なバックグラウンドを持つ人々が交流し、新しいアイデアを生み出す場を提供します。
       </p>
     </div>
     <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
       {
-        publishedTeamMembers.map((teamMemberEntry) => (
+        committeeMembers.map((member) => (
           <div class="group">
-            <div class="w-full aspect-square">
-              <Picture
-                src={teamMemberEntry.data.avatar.src}
-                alt={teamMemberEntry.data.avatar.alt}
-                sizes="(max-width: 800px) 100vw, 400px"
-                width={400}
-                height={400}
-                class="w-full rounded-sm transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
+            <div class="w-full aspect-square overflow-hidden rounded-sm bg-slate-100 border border-slate-200">
+              <img
+                src={member.avatar}
+                alt={member.name}
+                class="w-full h-full object-cover transition group-hover:-translate-y-1 group-hover:shadow-xl"
               />
             </div>
 
             <div class="mt-4 text-center">
-              <h2 class="text-lg text-gray-800">{teamMemberEntry.data.name}</h2>
+              <h2 class="text-lg text-gray-800">{member.name}</h2>
               <h3 class="text-sm text-slate-500">
-                {teamMemberEntry.data.title}
+                {member.title}
               </h3>
             </div>
           </div>
