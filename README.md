@@ -2,6 +2,15 @@
 
 このリポジトリは、スクラム祭りのウェブサイトのソースコードです。
 Astro と Tailwind CSS を使用して構築されています。
+（ベースとして [Astroship](https://github.com/surjithctly/astroship) テンプレートを利用しています）
+
+> **⚠️ 注意事項**
+> このサイトはサンプルページとして作成されています。
+> 実際に運用（本番公開）する場合は、以下の作業を行ってください。
+> - 実際の運用ドメインへの載せ替え（`astro.config.mjs` 等の設定や、ホスティング環境での独自ドメイン設定）
+> - デプロイ環境（Vercel, Netlify, Cloudflare Pages, GitHub Pages 等）の構築・設定
+> - お問い合わせフォームなど、必要に応じた動的機能のつなぎ込みや不要なサンプルページの削除
+> - 本番向けのアクセス解析タグ（Google Analytics等）の設定
 
 ## コンテンツの更新方法
 
@@ -19,6 +28,15 @@ Keynote スピーカーの情報は、Astro コンポーネント内のデータ
 スポンサーのロゴ情報は、プラン（Platinum, Gold, Silver, Bronze, 個人）ごとにコンポーネント内で管理されています。
 スポンサーの追加・変更を行う場合は、以下のファイルの先頭にある `sponsors` 配列を編集してください。
 - **対象ファイル:** `src/components/logos.astro`
+
+### 4. サイト基本情報（SEO・OGP）の変更
+サイトのタイトル、説明文、SNS共有時の画像（OGP）などを実際のイベントに合わせて変更してください。
+- **対象ファイルの例:** `src/layouts/Layout.astro` や `src/components/seo.astro` などのレイアウト・SEO用コンポーネント
+
+### 5. デザイン・配色のカスタマイズ
+サイトのテーマカラーや基本デザインを変更する場合は、Tailwind CSS の設定を編集します。
+- **対象ファイル:** `tailwind.config.cjs` （または `.mjs`）
+- **ベーススタイル:** 基本となるCSSファイル（例: `src/styles/global.css` など）
 
 ---
 
