@@ -1,18 +1,77 @@
 ---
 // @ts-ignore
 import { Icon } from "astro-icon/components";
+
+const sponsors = [
+  {
+    tier: "Platinum",
+    sizeClass: "size-24 md:size-32", // 特大
+    icons: ["simple-icons:react"],
+  },
+  {
+    tier: "Gold",
+    sizeClass: "size-20 md:size-24", // 大
+    icons: ["simple-icons:svelte", "simple-icons:astro"],
+  },
+  {
+    tier: "Silver",
+    sizeClass: "size-16 md:size-20", // 中
+    icons: [
+      "simple-icons:tailwindcss",
+      "simple-icons:alpinedotjs",
+      "simple-icons:vercel",
+      "simple-icons:netlify",
+    ],
+  },
+  {
+    tier: "Bronze",
+    sizeClass: "size-12 md:size-16", // 小
+    icons: [
+      "simple-icons:github",
+      "simple-icons:gitlab",
+      "simple-icons:bitbucket",
+      "simple-icons:docker",
+      "simple-icons:kubernetes",
+      "simple-icons:linux",
+      "simple-icons:ubuntu",
+      "simple-icons:debian",
+    ],
+  },
+  {
+    tier: "個人",
+    sizeClass: "size-8 md:size-10", // 極小
+    icons: [
+      "simple-icons:nodedotjs",
+      "simple-icons:deno",
+      "simple-icons:bun",
+      "simple-icons:python",
+      "simple-icons:go",
+      "simple-icons:rust",
+      "simple-icons:typescript",
+      "simple-icons:javascript",
+      "simple-icons:html5",
+      "simple-icons:css3",
+    ],
+  },
+];
 ---
 
 <div class="mt-24">
   <h2 class="text-center text-slate-500">参加スポンサー</h2>
-  <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
-
-    <Icon class="size-8 md:size-12" name="simple-icons:react" />
-    <Icon class="size-8 md:size-12" name="simple-icons:svelte" />
-    <Icon class="size-8 md:size-12" name="simple-icons:astro" />
-    <Icon class="size-8 md:size-16" name="simple-icons:tailwindcss" />
-    <Icon class="size-8 md:size-16" name="simple-icons:alpinedotjs" />
-    <Icon class="size-8 md:size-12" name="simple-icons:vercel" />
-
+  <div class="flex flex-col gap-16 mt-10">
+    {
+      sponsors.map((sponsor) => (
+        <div>
+          <h3 class="text-center font-semibold text-slate-600 mb-6">
+            {sponsor.tier}
+          </h3>
+          <div class="flex gap-4 md:gap-10 items-center justify-center flex-wrap">
+            {sponsor.icons.map((icon) => (
+              <Icon class={sponsor.sizeClass} name={icon} />
+            ))}
+          </div>
+        </div>
+      ))
+    }
   </div>
 </div>
