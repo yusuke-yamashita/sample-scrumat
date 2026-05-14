@@ -13,44 +13,45 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
-  "/opengraph.jpg",
+  "/scrumatog.png",
   Astro.site
 ).toString();
 
 const { title } = Astro.props;
 
 const makeTitle = title
-  ? title + " | " + "Astroship"
+  ? title + " | " + "スクラム祭り"
   : "スクラム祭り - 超楽しいスクラムの祭典";
+
+const description = "カンファレンスでは多様な参加者が集まることで様々な視点で物事を捉えることができ、多くの学びを手に入れることが可能です。 一方で、そこで得た学びを具体的な行動変容へと繋げるためには、お互いに信頼し合える少人数で安全な場も同じく重要だと感じています。";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Astroship is a starter website template for Astro built with TailwindCSS."
+      description={description}
       canonical={canonicalURL}
       twitter={{
-        creator: "@surjithctly",
-        site: "@web3templates",
+        creator: "@scrummatsuri",
+        site: "@scrummatsuri",
         card: "summary_large_image",
       }}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Astroship - Starter Template for Astro`,
+          title: makeTitle,
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Astroship Homepage Screenshot",
+          alt: makeTitle,
         },
       }}
     />
